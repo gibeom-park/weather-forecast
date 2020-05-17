@@ -1,0 +1,26 @@
+/*
+Written by Gibeom Park
+*/
+
+syntax = "proto3";
+
+service WeatherService {
+    rpc Weather (WeatherRequest) returns (WeatherResponse);
+}
+
+message WeatherRequest {
+    int32 time_now = 1;
+    int32 locate_x = 2;
+    int32 locate_y = 3;    
+}
+
+message WeatherResponse {
+    bool state = 1;
+    string locate_name = 2;
+    repeated Temperature temperature = 3;
+}
+
+message Temperature {
+    int32 time = 1;
+    int32 temp = 2;
+}
